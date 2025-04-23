@@ -7,19 +7,35 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
             background-image: url('Fireworks.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            padding-top: 80px; /* for navbar spacing */
+            margin: 0;
+        }
+        .navbar {
+            background-color: black;
+        }
+        .navbar a {
+            color: white !important;
+        }
+        .navbar-nav .nav-link {
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background-color: blanchedalmond;
+            color: black !important;
+            border-radius: 5px;
         }
         .services-section {
             text-align: center;
             padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.8); 
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 10px;
-            display: inline-block;
-            margin: 50px auto;
+            max-width: 900px;
+            margin: 0 auto 40px;
         }
         .services-section h1 {
             font-size: 2.5rem;
@@ -29,18 +45,17 @@
             margin: 20px 0;
         }
         .service-item h3 {
-            color: #ff4500; 
+            color: #ff4500;
         }
         .table-container {
-            margin: 40px auto;
-            max-width: 800px;
+            margin: 0 auto 60px;
+            max-width: 900px;
             background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
         }
         table {
             width: 100%;
-            border-collapse: collapse;
         }
         th, td {
             padding: 12px;
@@ -54,23 +69,46 @@
     </style>
 </head>
 <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Website</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="mm.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="location.html">Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calculate.html">Calculate</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Section -->
     <div class="services-section">
         <h1>Our Services</h1>
         <div class="service-item">
-            <h3>Custom Fireworks Displays</h3>
+            <h3>🎆 Custom Fireworks Displays</h3>
             <p>We design breathtaking fireworks shows for weddings, parties, and special events.</p>
         </div>
         <div class="service-item">
-            <h3>Retail Fireworks Sales</h3>
+            <h3>🛒 Retail Fireworks Sales</h3>
             <p>We offer a wide variety of fireworks, from sparklers to rockets, for your celebrations.</p>
         </div>
         <div class="service-item">
-            <h3>Safe & Secure Fireworks Handling</h3>
+            <h3>🛡️ Safe & Secure Fireworks Handling</h3>
             <p>We provide expert guidance and safety instructions to ensure a safe experience.</p>
         </div>
     </div>
 
-    <div class="table-container" style="text-align: center;">
+    <!-- Fireworks Price Table -->
+    <div class="table-container">
         <h2 class="text-center">Available Fireworks & Pricing</h2>
         <table class="table">
             <thead>
@@ -110,8 +148,9 @@
         </table>
     </div>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
-
