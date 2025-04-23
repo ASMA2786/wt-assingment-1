@@ -6,19 +6,41 @@
     <title>Cracker Bill Calculator - Fireworks</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        .navbar {
+            background-color: black;
+        }
+        .navbar a {
+            color: white !important;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background-color: blanchedalmond;
+            color: black !important;
+            border-radius: 5px;
+        }
         body {
             background-color: #f8f9fa;
             background-image: url('Fireworks.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding-top: 80px; /* Space for navbar */
+            margin: 0;
             text-align: center;
-            padding: 20px;
         }
-        .container {
+        .container-box {
             background: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: auto;
         }
-        h1 {
+        h1, h2 {
             color: #e91e63;
         }
         .table {
@@ -33,8 +55,29 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>our Fireworks'S</h1>
+    <!-- Fixed Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Website</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="mm.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="location.html">Location</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculate.html">Calculate</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Calculator Content -->
+    <div class="container-box">
+        <h1>Our Fireworks</h1>
         <h2>Cracker Bill Calculator</h2>
 
         <input type="text" id="searchBox" class="form-control" placeholder="Search for a cracker..." onkeyup="filterTable()">
@@ -48,31 +91,11 @@
                 </tr>
             </thead>
             <tbody id="crackerTable">
-                <tr>
-                    <td>Rockets</td>
-                    <td>350</td>
-                    <td><input type="number" class="form-control qty" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Flower Pots</td>
-                    <td>400</td>
-                    <td><input type="number" class="form-control qty" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Chakkar (Spinners)</td>
-                    <td>500</td>
-                    <td><input type="number" class="form-control qty" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Fuljhadi (Sparklers)</td>
-                    <td>508</td>
-                    <td><input type="number" class="form-control qty" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Anars</td>
-                    <td>350</td>
-                    <td><input type="number" class="form-control qty" value="0" min="0"></td>
-                </tr>
+                <tr><td>Rockets</td><td>350</td><td><input type="number" class="form-control qty" value="0" min="0"></td></tr>
+                <tr><td>Flower Pots</td><td>400</td><td><input type="number" class="form-control qty" value="0" min="0"></td></tr>
+                <tr><td>Chakkar (Spinners)</td><td>500</td><td><input type="number" class="form-control qty" value="0" min="0"></td></tr>
+                <tr><td>Fuljhadi (Sparklers)</td><td>508</td><td><input type="number" class="form-control qty" value="0" min="0"></td></tr>
+                <tr><td>Anars</td><td>350</td><td><input type="number" class="form-control qty" value="0" min="0"></td></tr>
             </tbody>
         </table>
 
@@ -80,30 +103,32 @@
         <p class="total-bill">Total Bill: ₹<span id="totalAmount">0.00</span></p>
     </div>
 
+    <!-- Scripts -->
     <script>
         function calculateTotal() {
             let total = 0;
             const rows = document.querySelectorAll("#crackerTable tr");
-            
             rows.forEach(row => {
                 const price = parseFloat(row.cells[1].textContent);
                 const quantity = parseInt(row.cells[2].querySelector("input").value);
                 total += price * quantity;
             });
-
             document.getElementById("totalAmount").textContent = total.toFixed(2);
         }
 
         function filterTable() {
             let filter = document.getElementById("searchBox").value.toLowerCase();
             let rows = document.querySelectorAll("#crackerTable tr");
-
             rows.forEach(row => {
                 let crackerName = row.cells[0].textContent.toLowerCase();
                 row.style.display = crackerName.includes(filter) ? "" : "none";
             });
         }
     </script>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
